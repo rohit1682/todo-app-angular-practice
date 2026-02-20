@@ -1,0 +1,38 @@
+<div class="todo-form-container">
+  <h2>Add New Todo</h2>
+  <form (ngSubmit)="onSubmit()" class="todo-form">
+    <div class="form-group">
+      <label for="title">Title *</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        [(ngModel)]="title"
+        placeholder="Enter todo title"
+        required
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="description"
+        placeholder="Enter todo description (optional)"
+        rows="3"
+        class="form-control"
+      ></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="!title.trim()" class="btn btn-primary">
+        Add Todo
+      </button>
+      <button type="button" (click)="resetForm()" class="btn btn-secondary">
+        Clear
+      </button>
+    </div>
+  </form>
+</div>

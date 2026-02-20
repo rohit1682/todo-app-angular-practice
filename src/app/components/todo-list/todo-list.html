@@ -1,0 +1,70 @@
+<div class="todo-list-container">
+  <div class="header">
+    <h1>📝 Todo List Application</h1>
+    <p class="subtitle">Manage your tasks efficiently with full CRUD operations</p>
+  </div>
+
+  <app-todo-form (todoCreated)="onTodoCreated($event)"></app-todo-form>
+
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-label">Total:</span>
+      <span class="stat-value">{{ totalCount }}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Pending:</span>
+      <span class="stat-value pending">{{ pendingCount }}</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">Completed:</span>
+      <span class="stat-value completed">{{ completedCount }}</span>
+    </div>
+  </div>
+
+  <div class="filter-bar">
+    <button
+      (click)="setFilter('all')"
+      [class.active]="filter === 'all'"
+      class="filter-btn"
+    >
+      All
+    </button>
+    <button
+      (click)="setFilter('pending')"
+      [class.active]="filter === 'pending'"
+      class="filter-btn"
+    >
+      Pending
+    </button>
+    <button
+      (click)="setFilter('completed')"
+      [class.active]="filter === 'completed'"
+      class="filter-btn"
+    >
+      Completed
+    </button>
+    <button
+      (click)="clearCompleted()"
+      [disabled]="completedCount === 0"
+      class="filter-btn clear-btn"
+    >
+      Clear Completed
+    </button>
+  </div>
+
+  <div class="todos-container">
+    <div *ngIf="filteredTodos.length === 0" class="empty-state">
+      <p *ngIf="filter === 'all'">No todos yet. Create your first todo above! 🎯</p>
+      <p *ngIf="filter === 'pending'">No pending todos. Great job! ✨</p>
+      <p *ngIf="filter === 'completed'">No completed todos yet. Keep going! 💪</p>
+    </div>
+
+    <app-todo-item
+      *ngFor="let todo of filteredTodos"
+      [todo]="todo"
+      (todoUpdated)="onTodoUpdated($event)"
+      (todoDeleted)="onTodoDeleted($event)"
+      (todoToggled)="onTodoToggled($event)"
+    ></app-todo-item>
+  </div>
+</div>

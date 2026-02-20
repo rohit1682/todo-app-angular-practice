@@ -1,0 +1,145 @@
+.todo-list-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  margin: 0;
+  color: #333;
+  font-size: 36px;
+}
+
+.subtitle {
+  color: #666;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.stats-bar {
+  display: flex;
+  justify-content: space-around;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-value.pending {
+  color: #ffc107;
+}
+
+.stat-value.completed {
+  color: #4CAF50;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.filter-btn:hover:not(:disabled) {
+  border-color: #4CAF50;
+  color: #4CAF50;
+}
+
+.filter-btn.active {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+}
+
+.filter-btn.clear-btn {
+  margin-left: auto;
+  border-color: #f44336;
+  color: #f44336;
+}
+
+.filter-btn.clear-btn:hover:not(:disabled) {
+  background-color: #f44336;
+  color: white;
+}
+
+.filter-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.todos-container {
+  min-height: 200px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state p {
+  font-size: 18px;
+  color: #999;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .todo-list-container {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .stats-bar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+  }
+
+  .filter-btn.clear-btn {
+    margin-left: 0;
+  }
+}
